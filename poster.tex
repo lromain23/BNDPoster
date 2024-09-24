@@ -24,12 +24,15 @@
 % \usetitlestyle{Envelope}
 % \usetitlestyle{Wave}
 % \usetitlestyle{verticalShading}
-
+\include{article_list.tex}
+\include{patent_list.tex}
 \colorlet{backgroundcolor}{white}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{pdfpages}
+\usepackage{subfigure}
 \usepackage{mychronology}
+\usepackage{adjustbox}
 \setmainfont{FreeSerif}
 \setsansfont{FreeSans}
 
@@ -44,9 +47,7 @@
 }
 %% Uncomment to switch off tikzposter footer
 % \tikzposterlatexaffectionproofoff
-\def \pdfwidth{50mm}
-\def \pdfheight{70mm}
-\def \pdfoptions{width=\pdfwidth}
+
 \settitle{ \centering \vbox{
 %		\@titlegraphic \\[\TP@titlegraphictotitledistance] \centering
 		\color{titlefgcolor} {\bfseries \Huge \sc \@title \par}
@@ -73,7 +74,7 @@
 	\block[linewidth=\blw]{}{
  		\begin{chronology}[2]{1984}{2024}{\linewidth}
 		\event[1984]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
-		\event[1986]{1994}{\includegraphics[height=2cm]{images/Nortel.jpg}}
+		\event[1986]{1994}{\includegraphics[height=2cm]{images/ntlogo.pdf}}
 		\event[1994]{2009}{
 %			\includegraphics[height=4cm]{images/BND_Book.jpg}
 			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg},
@@ -101,33 +102,30 @@
 
 	%	\end{tikzpicture}
 	}
-	
+\def \apdfwidth{60mm}
+\def \apdfheight{44mm}	
 
-	\begin{columns}
+%	\begin{columns}
 		
-		\column{0.5}
+%		\column{0.5}
 		\block[linewidth=\blw]{Publications}{
-			\frame{\includegraphics[height=\pdfheight]{Articles/publications/A_180_MHz_0.8_mu_m_BiCMOS_modular_memory_family_of_DRAM_and_multiport_SRAM-page1.pdf}}
-			\frame{\includegraphics[height=\pdfheight]{Articles/publications/A_200_Mhz_0.8-spl_mu-m_BiCMOS_Modular_Memory_Family_Of_DRAM_And_Multiport_SRAM-page1.pdf}}
-		}
-
-%	\column{0.1}
-%	\block[linewidth=\blw]{}{
-%		\begin{tikzfigure}[]
-%			\includegraphics[width=\linewidth]{images/BND_Book}
-%		\end{tikzfigure}
+			\begin{adjustbox}
+				\foreach \x in \articles {
+					\frame{\includegraphics[width=\apdfwidth]{Articles/publications/\x}}
+				}
+			\end{adjustbox}
 	}
 	
-	\column{0.5}
-	
+%	\column{0.5}
+	\def \ppdfwidth{30mm}
+	\def \pdfheight{40mm}
 	\block[linewidth=\blw]{Patents}{
-		\includegraphics[width=\pdfwidth]{Patents/first_pages/1990_11_06_4969148-page1.pdf}
-		\includegraphics[width=\pdfwidth]{Patents/first_pages/1991_02_26_4996691-page1.pdf}
-		\includegraphics[width=\pdfwidth]{Patents/first_pages/1994_06_21_5323400-page1.pdf}
-		
+		\foreach \x in \patents {
+		  	\frame{\includegraphics[width=\ppdfwidth,height=\pdfheight]{patents/first_pages/\x}}
+		 }
 	}
 
-\end{columns}
+%\end{columns}
 
 
 \end{document}
