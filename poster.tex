@@ -63,9 +63,9 @@
 }
 
 \def \pdfwidth{40mm}
-\def \pdfheight{44mm}
-\def \ppdfwidth{20mm}
-\def \ppdfheight{35mm}
+
+\def \bpdfwidth{24mm}
+
 \include{article_list.tex}
 \include{patent_list.tex}
 \begin{document}
@@ -73,7 +73,10 @@
 	\block[linewidth=\blw]{}{
  		\begin{chronology}[2]{1984}{2024}{\linewidth}
 		\event[1984]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
-		\event[1986]{1994}{\includegraphics[height=2cm]{images/ntlogo.pdf}}
+		\event[1986]{1994}{
+			\includegraphics[height=2cm]{images/canoe2.jpg}
+			\includegraphics[height=2cm]{images/ntlogo.pdf}
+		}
 		\event[1994]{2009}{
 			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg},
 			}
@@ -82,16 +85,15 @@
 		\event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
 		\end{chronology}
 	}
-	\block[linewidth=\blw]{Publications}{
-%		\begin{adjustbox}
-			\foreach \x in \articles {
-				\frame{\includegraphics[width=\pdfwidth]{Articles/publications/\x}}
-			}
-%		\end{adjustbox}
-	}
 	\block[linewidth=\blw]{Brevets}{
 		\foreach \x in \patents {
-		  	\frame{\includegraphics[width=\ppdfwidth,height=\ppdfheight]{patents/first_pages/\x}}
-		 }
+			\frame{\includegraphics[width=\bpdfwidth]{patents/first_pages/\x}}
+		}
 	}
+	\block[linewidth=\blw]{Publications}{
+		\foreach \x in \articles {
+			\frame{\includegraphics[width=\pdfwidth]{Articles/publications/\x}}
+		}
+	}
+
 \end{document}
