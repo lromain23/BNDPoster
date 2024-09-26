@@ -31,7 +31,7 @@
 \usepackage{pdfpages}
 \usepackage{subfigure}
 \usepackage{chronology}
-%\usepackage{adjustbox}
+\usepackage[export]{adjustbox}
 \setmainfont{FreeSerif}
 \setsansfont{FreeSans}
 
@@ -60,13 +60,13 @@
 }
 
 
-
-\def \bpdfwidth{31mm}
+\def \bpdfwidth{33.4mm}
+\def \bpdfwidthlastrow{32mm}
 \def \apdfwidth{37mm}
+\def \bhsp{5mm}
 
 \include{article_list.tex}
 \include{patent_list.tex}
-
 
 \begin{document}
 	\maketitle   
@@ -86,10 +86,24 @@
 		\end{chronology}
 	}
 	\block[linewidth=\blw]{\centering Brevets}{
-		\foreach \x in \patents {
-			\frame{
-				\includegraphics[width=\bpdfwidth]{patents/first_pages/\x}
-			}
+		\hspace{\bhsp}
+		\foreach \x in \patentsa {
+			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+		}
+		
+		\hspace{\bhsp}
+		\foreach \x in \patentsb {
+			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+		}
+		
+		\hspace{\bhsp}
+		\foreach \x in \patentsc {
+			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+		}
+		
+		\hspace{1mm}
+		\foreach \x in \patentsd {
+			\includegraphics[width=\bpdfwidthlastrow,frame]{patents/first_pages/\x}
 		}
 	}
 	\block[linewidth=\blw]{\centering Publications}{
