@@ -24,8 +24,7 @@
 % \usetitlestyle{Envelope}
 % \usetitlestyle{Wave}
 % \usetitlestyle{verticalShading}
-\include{article_list.tex}
-\include{patent_list.tex}
+
 \colorlet{backgroundcolor}{white}
 \usepackage{fontspec}
 \usepackage{graphicx}
@@ -36,7 +35,7 @@
 \setmainfont{FreeSerif}
 \setsansfont{FreeSans}
 
-\title{Benoit Nadeau-Dostie}
+\title{Benoit Nadeau-Dostie, Ph.D.}
 %\author{1994 - 2024}
 %% Optional title graphic
 \titlegraphic{
@@ -63,69 +62,36 @@
 	,eventlabelbottom/.style={chroneventlabel,anchor=south west,yshift=-1cm,rotate=0}     % Bottom label
 }
 
+\def \pdfwidth{40mm}
+\def \pdfheight{44mm}
+\def \ppdfwidth{20mm}
+\def \ppdfheight{35mm}
+\include{article_list.tex}
+\include{patent_list.tex}
 \begin{document}
-	
-	%\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{images/PP_CHIP.png}};
-	
 	\maketitle   
-    \end
- 
-	
 	\block[linewidth=\blw]{}{
  		\begin{chronology}[2]{1984}{2024}{\linewidth}
 		\event[1984]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
 		\event[1986]{1994}{\includegraphics[height=2cm]{images/ntlogo.pdf}}
 		\event[1994]{2009}{
-%			\includegraphics[height=4cm]{images/BND_Book.jpg}
 			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg},
 			}
 		\eventpoint{1999}{\includegraphics[height=4cm]{images/BND_Book.jpg}}
 		\event[2009]{2017}{\includegraphics[height=2cm]{images/MGC Logo2.jpg}}
 		\event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
-		\end{chronology}}
-	
-    %	\begin{tikzpicture}
-	%	% draw horizontal line   
-	%	\draw[ultra thick, ->] (0,0) -- (\linewidth,0);
-	%	\foreach \x in {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75}
-	%	\draw (\x cm,3pt) -- (\x cm,-3pt);
-	%	\draw[ultra thick] (5,0) node[below=3pt,thick] {1985} node[above=3pt] {};
-	%	\draw[ultra thick] (10,0) node[below=3pt,thick] {1990} node[above=3pt] {};
-	%	\draw[ultra thick] (15,0) node[below=3pt,thick] {1995} node[above=3pt] {};
-	%	\draw[ultra thick] (20,0) node[below=3pt,thick] {2000} node[above=3pt] {};
-	%	\draw[ultra thick] (25,0) node[below=3pt,thick] {2005} node[above=3pt] {};
-	%	\draw[ultra thick] (30,0) node[below=3pt,thick] {2010} node[above=3pt] {};		
-			
-	%	\draw[fill=black,draw=none,opacity=0.5,rounded corners=10](10,-0.5) rectangle (20,0.5)%
-	%	\draw (10,2) node{\includegraphics[height=2cm]{images/UdeS2.jpg}}
-
-
-	%	\end{tikzpicture}
+		\end{chronology}
 	}
-\def \apdfwidth{60mm}
-\def \apdfheight{44mm}	
-
-%	\begin{columns}
-		
-%		\column{0.5}
-		\block[linewidth=\blw]{Publications}{
-			\begin{adjustbox}
-				\foreach \x in \articles {
-					\frame{\includegraphics[width=\apdfwidth]{Articles/publications/\x}}
-				}
-			\end{adjustbox}
+	\block[linewidth=\blw]{Publications}{
+%		\begin{adjustbox}
+			\foreach \x in \articles {
+				\frame{\includegraphics[width=\pdfwidth]{Articles/publications/\x}}
+			}
+%		\end{adjustbox}
 	}
-	
-%	\column{0.5}
-	\def \ppdfwidth{30mm}
-	\def \pdfheight{40mm}
-	\block[linewidth=\blw]{Patents}{
+	\block[linewidth=\blw]{Brevets}{
 		\foreach \x in \patents {
-		  	\frame{\includegraphics[width=\ppdfwidth,height=\pdfheight]{patents/first_pages/\x}}
+		  	\frame{\includegraphics[width=\ppdfwidth,height=\ppdfheight]{patents/first_pages/\x}}
 		 }
 	}
-
-%\end{columns}
-
-
 \end{document}
