@@ -5,27 +5,27 @@
 
 %% Available themes: see also
 %% https://bitbucket.org/surmann/tikzposter/downloads/themes.pdf
-\usetheme{Default}
-% \usetheme{Rays}
+%\usetheme{Default}
+%\usetheme{Rays}
 % \usetheme{Basic}
 %\usetheme{Simple}
 % \usetheme{Envelope}
-% \usetheme{Wave}
+ \usetheme{Wave}
 % \usetheme{Board}
 % \usetheme{Autumn}
 % \usetheme{Desert}
-
-
+\useblockstyle[textcolor=white]{Basic}
+\colorlet{blocktitlefgcolor}{white}
 %% Further changes to the title etc is possible
 % \usetitlestyle{Default}
 % \usetitlestyle{Basic}
 % \usetitlestyle{Empty}
-% \usetitlestyle{Filled}
-% \usetitlestyle{Envelope}
-% \usetitlestyle{Wave}
-% \usetitlestyle{verticalShading}
+%\usetitlestyle{Filled}
+\usetitlestyle{Envelope}
+%\usetitlestyle{Wave}
+%\usetitlestyle{VerticalShading}
 
-\colorlet{backgroundcolor}{white}
+%\colorlet{backgroundcolor}{lightgray}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -37,20 +37,17 @@
 
 \title{Benoit Nadeau-Dostie, Ph.D.}
 %\author{1994 - 2024}
+%\author{Author}
 %% Optional title graphic
-\titlegraphic{
-	\includegraphics[height=4cm]{images/UdeS2.jpg},
-	\includegraphics[height=4cm]{images/LogicVisionLogo3.jpg},
-	\includegraphics[height=4cm]{images/MGC Logo2.jpg},
-	\includegraphics[height=4cm]{images/Siemens2.png}
-}
 %% Uncomment to switch off tikzposter footer
 % \tikzposterlatexaffectionproofoff
 
-\settitle{ \centering \vbox{
-%		\@titlegraphic \\[\TP@titlegraphictotitledistance] \centering
-		\color{titlefgcolor} {\bfseries \Huge \sc \@title \par}
-}}
+\settitle{ \centering \vbox {
+		\color{titlefgcolor} {
+			\bfseries \Huge \sc \newline \newline \@title 
+		}
+	}
+}
 \def \blw{1}
 \tikzset{%
 	,chronevent/.style={fill=black,draw=none,opacity=0.5}
@@ -68,6 +65,8 @@
 
 \include{article_list.tex}
 \include{patent_list.tex}
+
+
 \begin{document}
 	\maketitle   
 	\block[linewidth=\blw]{}{
@@ -85,12 +84,12 @@
 		\event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
 		\end{chronology}
 	}
-	\block[linewidth=\blw]{Brevets}{
+	\block[linewidth=\blw]{\centering Brevets}{
 		\foreach \x in \patents {
 			\frame{\includegraphics[width=\bpdfwidth]{patents/first_pages/\x}}
 		}
 	}
-	\block[linewidth=\blw]{Publications}{
+	\block[linewidth=\blw]{\centering Publications}{
 		\foreach \x in \articles {
 			\frame{\includegraphics[width=\pdfwidth]{Articles/publications/\x}}
 		}
