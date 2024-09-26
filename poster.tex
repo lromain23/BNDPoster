@@ -30,7 +30,7 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{subfigure}
-\usepackage{mychronology}
+\usepackage{chronology}
 %\usepackage{adjustbox}
 \setmainfont{FreeSerif}
 \setsansfont{FreeSans}
@@ -54,14 +54,15 @@
 	,chronlabel/.style={opacity=1}
 	,chrontickslabel/.style={chronlabel}
 	,chroneventlabel/.style={chronlabel}
-	,eventlabel/.style={chroneventlabel,anchor=south west,yshift=.2\unit,rotate=0}
+	,eventlabel/.style={chroneventlabel,anchor=south,yshift=.2\unit,rotate=0}
 	,flippedeventlabel/.style={chroneventlabel,anchor=north west,yshift=-.2\unit,rotate=0}
 	,eventlabelbottom/.style={chroneventlabel,anchor=south west,yshift=-1cm,rotate=0}     % Bottom label
 }
 
-\def \pdfwidth{40mm}
 
-\def \bpdfwidth{24mm}
+
+\def \bpdfwidth{31mm}
+\def \apdfwidth{37mm}
 
 \include{article_list.tex}
 \include{patent_list.tex}
@@ -70,14 +71,14 @@
 \begin{document}
 	\maketitle   
 	\block[linewidth=\blw]{}{
- 		\begin{chronology}[2]{1984}{2024}{\linewidth}
-		\event[1984]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
+ 		\begin{chronology}[2]{1983}{2024}{\linewidth}
+		\event[1983]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
 		\event[1986]{1994}{
 			\includegraphics[height=2cm]{images/canoe2.jpg}
 			\includegraphics[height=2cm]{images/ntlogo.pdf}
 		}
 		\event[1994]{2009}{
-			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg},
+			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg}
 			}
 		\eventpoint{1999}{\includegraphics[height=4cm]{images/BND_Book.jpg}}
 		\event[2009]{2017}{\includegraphics[height=2cm]{images/MGC Logo2.jpg}}
@@ -86,12 +87,16 @@
 	}
 	\block[linewidth=\blw]{\centering Brevets}{
 		\foreach \x in \patents {
-			\frame{\includegraphics[width=\bpdfwidth]{patents/first_pages/\x}}
+			\frame{
+				\includegraphics[width=\bpdfwidth]{patents/first_pages/\x}
+			}
 		}
 	}
 	\block[linewidth=\blw]{\centering Publications}{
 		\foreach \x in \articles {
-			\frame{\includegraphics[width=\pdfwidth]{Articles/publications/\x}}
+			\frame{
+				\includegraphics[width=\apdfwidth]{Articles/publications/\x}
+			}
 		}
 	}
 
