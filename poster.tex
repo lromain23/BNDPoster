@@ -1,5 +1,5 @@
+\tracinglostchars=2
 \documentclass[25pt,a1paper,landscape]{tikzposter}
-
 %% Tikzposter is highly customizable: please see
 %% https://bitbucket.org/surmann/tikzposter/downloads/styleguide.pdf
 
@@ -14,7 +14,7 @@
 % \usetheme{Board}
 % \usetheme{Autumn}
 % \usetheme{Desert}
-\useblockstyle[textcolor=white]{Basic}
+\useblockstyle{Basic}
 \colorlet{blocktitlefgcolor}{white}
 %% Further changes to the title etc is possible
 % \usetitlestyle{Default}
@@ -42,23 +42,19 @@
 %% Uncomment to switch off tikzposter footer
 % \tikzposterlatexaffectionproofoff
 
-\settitle{ \centering \vbox {
-		\color{titlefgcolor} {
-			\bfseries \Huge \sc \newline \newline \@title 
-		}
-	}
+\def \blw{1mm}
+\settitle{ \centering \vbox{
+\color{titlefgcolor} {\bfseries \Huge \sc \@title}
+}}
+\tikzset{
+    ,chronevent/.style={fill=black,draw=none,opacity=0.5}
+    ,chronlabel/.style={opacity=1}
+    ,chrontickslabel/.style={chronlabel}
+    ,chroneventlabel/.style={chronlabel}
+    ,eventlabel/.style={chroneventlabel,anchor=south,yshift=.2\unit,rotate=0}
+    ,flippedeventlabel/.style={chroneventlabel,anchor=north west,yshift=-.2\unit,rotate=0}
+    ,eventlabelbottom/.style={chroneventlabel,anchor=south west,yshift=-1cm,rotate=0}
 }
-\def \blw{1}
-\tikzset{%
-	,chronevent/.style={fill=black,draw=none,opacity=0.5}
-	,chronlabel/.style={opacity=1}
-	,chrontickslabel/.style={chronlabel}
-	,chroneventlabel/.style={chronlabel}
-	,eventlabel/.style={chroneventlabel,anchor=south,yshift=.2\unit,rotate=0}
-	,flippedeventlabel/.style={chroneventlabel,anchor=north west,yshift=-.2\unit,rotate=0}
-	,eventlabelbottom/.style={chroneventlabel,anchor=south west,yshift=-1cm,rotate=0}     % Bottom label
-}
-
 
 \def \bpdfwidth{33.4mm}
 \def \bpdfwidthlastrow{32mm}
@@ -69,54 +65,52 @@
 \include{patent_list.tex}
 
 \begin{document}
-	\maketitle   
-	\block[linewidth=\blw]{}{
- 		\begin{chronology}[2]{1983}{2024}{\linewidth}
-		\event[1983]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
-		\event[1986]{1994}{
-			\includegraphics[height=2cm]{images/canoe2.jpg}
-			\includegraphics[height=2cm]{images/ntlogo.pdf}
-		}
-		\event[1994]{2009}{
-			\includegraphics[height=2cm]{images/LogicVisionLogo3.jpg}
-			}
-		\eventpoint{1999}{\includegraphics[height=4cm]{images/BND_Book.jpg}}
-		\event[2009]{2017}{\includegraphics[height=2cm]{images/MGC Logo2.jpg}}
-		\event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
-		\end{chronology}
-	}
-	\block[linewidth=\blw]{\centering Brevets}{
-		\hspace{\bhsp}
-		\foreach \x in \patentsa {
-			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
-		}
-		
-		\hspace{\bhsp}
-		\foreach \x in \patentsb {
-			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
-		}
-		
-		\hspace{\bhsp}
-		\foreach \x in \patentsc {
-			\includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
-		}
-		
-		\hspace{1mm}
-		\foreach \x in \patentsd {
-			\includegraphics[width=\bpdfwidthlastrow,frame]{patents/first_pages/\x}
-		}
-	}
-	\block[linewidth=\blw]{\centering Publications}{
-		\foreach \x in \articlesa {
-			\frame{
-				\includegraphics[width=\apdfwidth]{Articles/publications/\x}
-			}
-		}
-		\foreach \x in \articlesb {
-			\frame{
-				\includegraphics[width=\apdfwidth]{Articles/publications/\x}
-			}
-		}
-	}
-
+    \maketitle   
+    \block[linewidth=\blw] {} {
+        \begin{chronology}[2]{1983}{2024}{\linewidth}
+        \event[1983]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
+        \event[1986]{1994}{
+                \includegraphics[height=2cm]{images/canoe2.jpg}
+                \includegraphics[height=2cm]{images/ntlogo.pdf}}
+        \event[1994]{2009}{
+            \includegraphics[height=2cm]{images/LogicVisionLogo3.jpg}
+            }
+        \eventpoint{1999}{\includegraphics[height=4cm]{images/BND_Book.jpg}}
+        \event[2009]{2017}{\includegraphics[height=2cm]{images/MGC Logo2.jpg}}
+        \event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
+        \end{chronology}
+    }
+    \block[linewidth=\blw]{\centering Brevets}{
+        \hspace{\bhsp}
+        \foreach \x in \patentsa {
+            \includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+        }
+        
+        \hspace{\bhsp}
+        \foreach \x in \patentsb {
+            \includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+        }
+        
+        \hspace{\bhsp}
+        \foreach \x in \patentsc {
+            \includegraphics[width=\bpdfwidth,frame]{patents/first_pages/\x}
+        }
+        
+        \hspace{1mm}
+        \foreach \x in \patentsd {
+            \includegraphics[width=\bpdfwidthlastrow,frame]{patents/first_pages/\x}
+        }
+    }
+    \block[linewidth=\blw]{\centering Publications}{
+        \foreach \x in \articlesa {
+            \frame{
+                \includegraphics[width=\apdfwidth]{Articles/publications/\x}
+            }
+        }
+        \foreach \x in \articlesb {
+            \frame{
+                \includegraphics[width=\apdfwidth]{Articles/publications/\x}
+            }
+        }
+    }
 \end{document}
