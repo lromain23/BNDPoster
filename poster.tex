@@ -1,5 +1,8 @@
 \tracinglostchars=2
 \documentclass[25pt,a1paper,landscape]{tikzposter}
+
+\geometry{papersize={24in,36in}}
+\tikzposterlatexaffectionproofoff
 %% Tikzposter is highly customizable: please see
 %% https://bitbucket.org/surmann/tikzposter/downloads/styleguide.pdf
 
@@ -26,7 +29,8 @@
 %\usetitlestyle{VerticalShading}
 
 %\colorlet{backgroundcolor}{lightgray}
-\usepackage{fontspec}
+
+\usepackage{fontspec} 
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{subfigure}
@@ -67,7 +71,7 @@
 \begin{document}
     \maketitle   
     \block[linewidth=\blw] {} {
-        \begin{chronology}[2]{1983}{2024}{\linewidth}
+        \begin{chronology}[2]{1983}{2025}{\linewidth}
         \event[1983]{1986}{\includegraphics[height=2cm]{images/UdeS2.jpg}}
         \event[1986]{1994}{
                 \includegraphics[height=2cm]{images/canoe2.jpg}
@@ -77,7 +81,7 @@
             }
         \eventpoint{1999}{\includegraphics[height=4cm]{images/BND_Book.jpg}}
         \event[2009]{2017}{\includegraphics[height=2cm]{images/MGC Logo2.jpg}}
-        \event[2017]{2024}{\includegraphics[height=2cm]{images/Siemens2.png}}
+        \event[2017]{\decimaldate{30}{9}{2024}}{\includegraphics[height=2cm]{images/Siemens2.png}}
         \end{chronology}
     }
     \block[linewidth=\blw]{\centering Brevets}{
